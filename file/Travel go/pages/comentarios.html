@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Go - Comentarios</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Travel Go </h1>
+    <img src="/image/Logo.jpeg" alt="Logo Travel Go" class="logo">
+    <nav class="contenedor-menu">
+            <a href="/src/index.html">Inicio</a>
+            <a href="/pages/viajes.html">Viajes</a>
+            <a href="/pages/clima.html">Clima</a>
+            <a href="/pages/itinerario.html">Mi itinerario</a>
+            <a href="/pages/comentarios.html">Comentarios</a>
+            <a href="/pages/formulario.html">Formulario</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Comentarios sobre los destinos</h2>
+    <p>Conoce algunas recomendaciones para tu próxima aventura.</p>
+
+    <div class="comentarios">
+        <article>
+            <h3>Barranquilla</h3>
+            <p>Una ciudad alegre, famosa por su carnaval, sus tradiciones y su gastronomía.</p>
+        </article>
+
+        <article>
+            <h3>Cartagena</h3>
+            <p>Un destino encantador por sus murallas, sus playas y su arquitectura colonial.</p>
+        </article>
+
+        <article>
+            <h3>Bogotá</h3>
+            <p>Una ciudad con una amplia oferta cultural, museos, parques y restaurantes.</p>
+        </article>
+
+        <article>
+            <h3>Santa Marta</h3>
+            <p>Ideal para disfrutar del mar, los paisajes naturales y las actividades al aire libre.</p>
+        </article>
+
+        <article>
+            <h3>Bucaramanga</h3>
+            <p>Una ciudad agradable, conocida por sus parques y sus hermosos paisajes.</p>
+        </article>
+
+        <article>
+            <h3>Cali</h3>
+            <p>Un lugar perfecto para disfrutar de la salsa, la música y la gastronomía del Valle del Cauca.</p>
+        </article>
+    </div>
+
+    <h2>Comparte tu experiencia</h2>
+
+    <form id="formComentario">
+        <label for="nombre">Tu nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label for="destino">Destino visitado:</label>
+        <select id="destino" required>
+            <option value="">Selecciona un destino</option>
+            <option>Barranquilla</option>
+            <option>Cartagena</option>
+            <option>Bogotá</option>
+            <option>Santa Marta</option>
+            <option>Bucaramanga</option>
+            <option>Cali</option>
+        </select>
+
+        <label for="comentario">Tu comentario:</label>
+        <textarea id="comentario" rows="5" required></textarea>
+
+        <button class="boton" type="submit">Enviar comentario</button>
+    </form>
+
+    <div id="resultadoComentario"></div>
+</main>
+
+<footer>© 2026 Travel Go | Todos los derechos reservados</footer>
+
+<script>
+document.getElementById("formComentario").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const destino = document.getElementById("destino").value;
+    const comentario = document.getElementById("comentario").value;
+
+    const tarjeta = document.createElement("article");
+    const titulo = document.createElement("h3");
+    const texto = document.createElement("p");
+
+    titulo.textContent = destino + " - " + nombre;
+    texto.textContent = comentario;
+
+    tarjeta.appendChild(titulo);
+    tarjeta.appendChild(texto);
+
+    document.getElementById("resultadoComentario").appendChild(tarjeta);
+    this.reset();
+});
+</script>
+
+</body>
+</html>
